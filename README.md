@@ -315,7 +315,80 @@ These timing thresholds and calculations are fundamental in ensuring that digita
 ###  Design library cell using Magic Layout and ngspice characterization
 <details>
 <summary> Labs for CMOS inverter ngspice simulations  </summary>
+  
+**IO Placer Revision**
 
+`` set ::env(FP_IO_MODE) 2 ``
+The following command can be typed to change the I/O pins placemnt configuration.
+
+**Inception of Layout and CMOS Fabrication Process**
+SPICE Deck Creation for CMOS Inverter
+* SPICE Deck is a netlist that has information on:
+   * component connectivity
+   * component values
+   * identifying the nodes
+   * giving a designation to the nodes
+SPICE Simulation and Switching Threshold
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/5e7ac815-b20d-45c7-a803-8c1accfda065)
+
+**Git Clone and labwork**
+
+* Perform a git clone here from a repository that we require, to do the future labs.
+* Type the following command git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+* Copy the 'sky130A.tech' file into the directory we just cloned by using
+cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign look at the picture for the directory
+[insert image]
+
+**16 Mask CMOS Process**
+* Selecting a Substrate - Selecting the appropriate substrate to synthsize the design on.
+* Creating active reagion for transistors - Adding layers of SiO2(40nm), Si3N4(80nm) and photoresist(1um). On top of the photoresist we put a mask layer. Pass UV light and remove the mask. Resist is removed. LOCOS(Local Oxidation of Silicon) is performed. Si3N4 is etched.
+* N-Well and P-Well formation - The next masks are used to create the source and drain regions of the MOSFETs. Boron is used to make P-Well using ion implantation. Phosphorus is used to create N-Well. Put the MOSFET in a Drive In furnace.
+* Formation of Gate - Gate formation involves depositing a gate oxide, defining gate patterns using photolithography, depositing gate material, etching to create gates, doping the substrate and insulating the gates.
+* Lightly Doped Drain Formation(LDD) - Lightly doped drain (LDD) formation involves implanting the drain and source regions of a MOSFET transistor with a lighter concentration of dopants to reduce hot electron effect and short channel effect and enhance device performance.
+* Source and Drain Formation - Source and drain formation in a MOSFET transistor typically involves doping the silicon substrate with chemicals such as arsenic or phosphorous for n-type regions (source and drain) and boron for p-type regions (source and drain). High temperature annealing is performed.
+* Steps to form Contacts and Interconnects(local) - Titanium is deposited with a process known as sputtering. Wafer is heated to about 650 - 700 C in an N2 ambient furnace for 60 seconds. TiSi2 contacts are formed. TiN is also formed used for local communication. TiN is etched using RCA cleaning.
+* Higher Level Metal Formation - Forming contacts and interconnects locally involves depositing a dielectric material like silicon dioxide, patterning it using photolithography, etching contact holes, depositing a barrier metal (e.g., titanium or titanium nitride), filling with a conductor (e.g., aluminum or copper) using chemical vapor deposition (CVD), and then planarizing through chemical-mechanical polishing (CMP).
+
+**Sky130 Basic Layers Layout and LEF using Inverter**
+
+To look at layout of a CMOS inverter type the command magic -T sky130A.tech sky130_inv.mag &
+
+[insert image] 
+
+To look at the layout, choose and format use the letters s, v and z. To select a region right click with the mouse on the region to be selected. Triple s will show the connections to the particular choosen section.
+'what' is used in the tkcon to get to know what is present in the selected area.
+
+Steps to Create Standard Cell Layout and Extract Spice Netlist
+* DRC errors can be viewed in the tkcon.
+* To extract Spice Netlist:
+ext2spice cthresh 0 rthresh 0 (this does not create anything)
+ext2spice
+
+[insert image] 
+* sky130_inv.spice file is created
+**Sky130 Tech File Labs**
+Create Final SPICE Deck
+
+* Open the spice file using the command gedit sky130_inv.spice or vim sky130_inv.spice
+* Configure it to the specifications in the below picture:
+[insert image]
+
+**Characterize Inverter using Sky130 Models**
+* Plot the graph for output vs input sweeping the time
+* Use plot y vs time a in ngspice sky130_inv.spice
+
+[insert image]
+
+[insert image of graph]
+
+The results obtained from the graph are :
+* Rise Transition : 0.0395ns
+* Fall transition : 0.0282ns
+* Cell Rise delay : 0.03598ns
+* Cell fall delay : 0.0483ns
 </details>
+
+## Day 4
+### Pre-layout timing analysis and importance of good clock tree
 
 
