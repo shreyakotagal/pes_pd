@@ -198,6 +198,18 @@ Skywater-130 PDK and OpenLane Project
 * Synthesis is a critical step in the ASIC design process.
 * It can be initiated using the command: `run_synthesis`.
 * One essential early task is to calculate the flop ratio, which is the ratio of the number of D flip-flops to the total number of cells.
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/dc00095b-a810-485c-a946-ebee43033f39)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/c6f4d9ac-0b86-4916-a287-2b9d6a40ca46)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/65e86460-af5c-409a-94c9-21f0860385a3)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/490a5480-bf82-4268-a931-ccee200e43c8)
+
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/8e5333ea-2538-4868-a13e-c0ff5e3610a3)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/474f6640-603c-4136-afab-12fa15d944af)
 
 </details>
 
@@ -218,6 +230,7 @@ Skywater-130 PDK and OpenLane Project
 - Utilization factor is a crucial metric in floor planning.
 - It measures the ratio of the area occupied by the actual components to the total available area.
 - High utilization factors indicate efficient space usage.
+
 ![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/68c095d1-c702-48a4-8bc4-cb3aaebcfc95)
 
 ![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/9f5bc198-739e-411f-beac-14d5478025e7)
@@ -244,17 +257,15 @@ Steps to Run Floorplan using OpenLANE
 2. Navigate to the directory: `` ../openlane/designs/picorv32a/runs/11-09_17-53/results/floorplan``
 3. Use the command: `` magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def ``
 
-[Insert Screenshots of Running OpenLANE and Floorplan]
-
 Layout
-- Include images showcasing the overall layout and zoomed-in views.
 
-[Insert Layout Images Here]
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/44d3174e-4ca2-44e1-a1a4-ef4faaef0964)
 
-Standard Cells
-- Display images of standard cells used in the design.
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/dbe894ac-d1da-4335-8fdd-6957ab11a6c2)
 
-[Insert Standard Cells Image Here]
+
+Use 's', 'v', 'z' to center and zoom respectively.
+Right click of the mouse can be used along with s to select an area
 
 </details>
 <details> 
@@ -269,6 +280,8 @@ Some components may be located very far to their inputs which can disturb signal
 Assuming that all the clock signals are working at ideal rate, we do the timing analysis if the current placement works good.
 3. Placement
 `run_placement`
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/c72210ba-d970-49d2-b168-22612fc60f78)
 
 ![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/2e10b688-78f6-4501-91bb-cdbc019ccb7f)
 
@@ -320,8 +333,10 @@ These timing thresholds and calculations are fundamental in ensuring that digita
 
 `` set ::env(FP_IO_MODE) 2 ``
 The following command can be typed to change the I/O pins placemnt configuration.
+</details>
+<details>
+<summary> Inception of Layout and CMOS Fabrication Process </summary>
 
-**Inception of Layout and CMOS Fabrication Process**
 SPICE Deck Creation for CMOS Inverter
 * SPICE Deck is a netlist that has information on:
    * component connectivity
@@ -329,15 +344,20 @@ SPICE Deck Creation for CMOS Inverter
    * identifying the nodes
    * giving a designation to the nodes
 SPICE Simulation and Switching Threshold
+
 ![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/5e7ac815-b20d-45c7-a803-8c1accfda065)
 
-**Git Clone and labwork**
+</details>
+<details>
+<summary> Git Clone and labwork </summary>
 
-* Perform a git clone here from a repository that we require, to do the future labs.
+
+* Perform a git clone here from a repository that we require.
 * Type the following command git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 * Copy the 'sky130A.tech' file into the directory we just cloned by using
 cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign look at the picture for the directory
-[insert image]
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/a97c0129-e875-4416-8319-856ab0f46375)
 
 **16 Mask CMOS Process**
 * Selecting a Substrate - Selecting the appropriate substrate to synthsize the design on.
@@ -348,15 +368,23 @@ cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/v
 * Source and Drain Formation - Source and drain formation in a MOSFET transistor typically involves doping the silicon substrate with chemicals such as arsenic or phosphorous for n-type regions (source and drain) and boron for p-type regions (source and drain). High temperature annealing is performed.
 * Steps to form Contacts and Interconnects(local) - Titanium is deposited with a process known as sputtering. Wafer is heated to about 650 - 700 C in an N2 ambient furnace for 60 seconds. TiSi2 contacts are formed. TiN is also formed used for local communication. TiN is etched using RCA cleaning.
 * Higher Level Metal Formation - Forming contacts and interconnects locally involves depositing a dielectric material like silicon dioxide, patterning it using photolithography, etching contact holes, depositing a barrier metal (e.g., titanium or titanium nitride), filling with a conductor (e.g., aluminum or copper) using chemical vapor deposition (CVD), and then planarizing through chemical-mechanical polishing (CMP).
+</details>
+<details>
+<summary> Sky130 Basic Layers Layout and LEF using Inverter </summary>
 
-**Sky130 Basic Layers Layout and LEF using Inverter**
 
-To look at layout of a CMOS inverter type the command magic -T sky130A.tech sky130_inv.mag &
+* To look at layout of a CMOS inverter type the command magic -T sky130A.tech sky130_inv.mag &
 
-[insert image] 
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/acca16f9-8cb6-4268-9b6b-4792af3d8b9d)
 
 To look at the layout, choose and format use the letters s, v and z. To select a region right click with the mouse on the region to be selected. Triple s will show the connections to the particular choosen section.
 'what' is used in the tkcon to get to know what is present in the selected area.
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/a3f508ac-c0c1-4df2-bc0e-c385c664ac16)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/7cc732af-d7ce-4a04-9b6b-88cd9a19b747)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/22f7a5a4-db68-4e12-9739-6bdb1819efc9)
 
 Steps to Create Standard Cell Layout and Extract Spice Netlist
 * DRC errors can be viewed in the tkcon.
@@ -364,22 +392,29 @@ Steps to Create Standard Cell Layout and Extract Spice Netlist
 ext2spice cthresh 0 rthresh 0 (this does not create anything)
 ext2spice
 
-[insert image] 
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/11671c7f-a0c2-48ad-bd93-7ee9f2fac459)
+
 * sky130_inv.spice file is created
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/df10ca56-dd51-46af-9315-d71e36d9d397)
+
 **Sky130 Tech File Labs**
 Create Final SPICE Deck
 
 * Open the spice file using the command gedit sky130_inv.spice or vim sky130_inv.spice
 * Configure it to the specifications in the below picture:
-[insert image]
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/1d0a0e89-e2a0-41e1-ab81-ccd3ea01eb5d)
+
 
 **Characterize Inverter using Sky130 Models**
 * Plot the graph for output vs input sweeping the time
 * Use plot y vs time a in ngspice sky130_inv.spice
 
-[insert image]
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/ea5427c2-18cb-4dda-8905-4694da593aff)
 
-[insert image of graph]
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/c3d28888-6b78-429b-9de1-ad75dca391ff)
+
 
 The results obtained from the graph are :
 * Rise Transition : 0.0395ns
@@ -387,8 +422,122 @@ The results obtained from the graph are :
 * Cell Rise delay : 0.03598ns
 * Cell fall delay : 0.0483ns
 </details>
+<details>
+<summary> Sky130 PDKS and Steps to Download Magic Tool </summary>
+* Enter the command: wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+* Move the file to desktop 
+* Extract the file using tar xfz drc_tests.tgz 
+* Do ls to view all the files in it.
+* To open the software we type magic -d XR
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/2313a202-d6ec-4291-b5e1-946d826bc202)
+
+* Click 'file' and open the 'met3.mag' file.
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/3f28add4-3d1e-4958-a34e-219c3963ff5c)
+</details>
 
 ## Day 4
 ### Pre-layout timing analysis and importance of good clock tree
+<details>
+<summary> Extraction of LEF </summary>
 
+* Information on track can be found at: ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130fd_sc_hd/tracks.info
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/e0329895-1cfb-43b4-a3f8-c24661030225)
+
+* 1st value indicates the offset
+* 2nd value indicates the pitch along provided direction
+* Set the grid values using the numbers got
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/bf30e2c1-8281-4f6a-9d3d-2993215a67b1)
+
+First and Second conditions are met
+</details>
+<details>
+<summary> LEF Generation </summary>
+  
+* Save the layout: save sky130_vsdinv.mag
+*  Open file and extract LEF: magic -T sky130A.tch sky130_vsdinv.mag, lef write
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/961bc45b-1962-40be-ac82-168996b0df55)
+
+* Do the commands in the below images:
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/b00e2bb8-1982-4175-bda4-3e5bc3d145e6)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/b45552d5-0742-4f5e-accd-2762da9ce22e)
+
+* Run synthesis:
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/2eecd2e5-2f1e-4bfb-82d9-7bd310502736)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/57c71b28-2832-40de-b610-efcd024a008a)
+
+* Run floorplan and placement
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/f698d3ad-bd3b-4dc7-963e-ff903967f606)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/04e25302-bde8-49c4-aa79-fb6a2c2b4594)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/cc2ef713-18bf-4d02-b402-68db779c1a43)
+
+</details>
+
+<details>
+<summary> Timing Analysis with Ideal Clocks using OpenSTA </summary>
+  
+* Create 2 files:
+* Run timing analysis: sta pre_sta.conf
+
+</details>
+<details>
+<summary> Clock Tree Synthesis TritonCTS and Signal Integrity </summary>
+
+* run cts: run_cts
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/36dfb175-b6ed-4c9f-9021-44b4305dc039)
+
+* open road: openroad, read_lef /openLANE_flow/designs/picorv32a/runs/18-09_12-05/tmp/merged.lef
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/9f4f328e-15f4-4027-a13d-9ba3060fea89)
+
+
+* Do the following:
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/16-09_19-58/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty -max $::env(LIB_SLOWEST)
+read_liberty -max $::env(LIB_FASTEST)
+* Read the .src file: read_sdc /openLANE_flow/designs/picorv32a/src/sky130/my_base.sdc
+* Set the clock: set_propagated_clock [all_clocks]
+* Check the report: report_checks -path_delay min_max -format full_clock_expanded -digits 4
+* report_clock_skew -hold, report clock_skew -setup
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/ada76be2-055f-41b5-9f35-e93b821c8af5)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/5f915cce-b55b-4145-a6aa-f0b2ce68ee9d)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/b13ac9bc-1a69-406f-aabf-733295e78afd)
+
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/7421081b-01e2-4112-9373-353055bf5b18)
+
+</details>
+
+## DAY 5
+### Final steps for RTL2GDSII
+<details>
+<summary> Power Distribution Network </summary>
+  
+* Type: gen_pdn
+  
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/ca301d25-ea3a-4b5c-aa55-c57adc2c1ddf)
+
+* run routing: run_routing
+SPEF Extraction
+
+* To use this engine locate: cd Desktop/work/tools/SPEF_Extractor
+* Use command: python3 /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/18-09_12-05/tmp/merged.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/18-09_12-05/results/routing/picorv32a.def
+* The SPEF file is created in /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/18-09_12-05/results/routing/  
+</details>
 
