@@ -480,7 +480,8 @@ First and Second conditions are met
 
 ![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/04e25302-bde8-49c4-aa79-fb6a2c2b4594)
 
-![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/cc2ef713-18bf-4d02-b402-68db779c1a43)
+![image](https://github.com/shreyakotagal/pes_pd/assets/117657204/70d2a2a6-3795-4f4d-ae2f-2bda94e6f67e)
+
 
 </details>
 
